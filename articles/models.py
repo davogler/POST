@@ -83,7 +83,7 @@ class Article(models.Model):
     def get_author(self):
         for name in self.author.all():
             return name
-        endfor
+        
         
     def get_feednail(self):
         version = self.hero.version_generate("threeup")
