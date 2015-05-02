@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'articles',
     'staff',
     'south',
+    'insta',
     
 )
 
