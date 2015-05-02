@@ -89,9 +89,11 @@ class Article(models.Model):
         version = self.hero.version_generate("threeup")
         version_url = version.url
         domain=Site.objects.get_current()
-        version_path_full = smart_str(os.path.join(domain, version_url))
+        domain_name = domain.domain
         
-        return version_path_full
+        full_url = ''.join(['http://', domain_name, version_url])
+        
+        return full_url
         
     @models.permalink	
     def get_absolute_url(self):
