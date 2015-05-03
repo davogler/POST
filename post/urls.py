@@ -39,7 +39,7 @@ urlpatterns = patterns('',
     url(r'^issue-five/$', RedirectView.as_view(url='/issues/5/')),
     url(r'^issue-6/$', RedirectView.as_view(url='/issues/6/')),
     url(r'^issue-7/$', RedirectView.as_view(url='/issues/7/')),
-    
+    url(r'^instagram/', include('insta.urls')),
     url(r'^(?P<slug>[-\w]+)/$', ArticleDetail.as_view(), name='article_detail'),
     url(r'^signups/success/$', 'signups.views.success', name='success'),
     url(r'^signups/messages.html$', TemplateView.as_view(template_name='signups/messages.html')),

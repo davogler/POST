@@ -17,7 +17,6 @@ from instagram import subscriptions
 
 from insta.models import InstaPost, IGTag, BadPerson
 
-# Create your views here.
 
 
 def challenger(request):

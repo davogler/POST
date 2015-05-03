@@ -2,8 +2,10 @@ from django.shortcuts import get_object_or_404, render_to_response, get_list_or_
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 from articles.models import Article, Issue
+from django.db.models import Q
 import datetime
 from django.views.generic import ListView, DetailView
+from insta.models import InstaPost, IGTag
 
 from django.core.paginator import Paginator
 from django.http import Http404
@@ -51,6 +53,23 @@ class ArticleDetail(DetailView):
         self.queryset = entry_sort(request)
         
         return super(ArticleDetail, self).dispatch(request, *args, **kwargs)
+        
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(ArticleDetail, self).get_context_data(**kwargs)
+        
+        #extra stuff for context!
+        qt = self.get_object().igtag_set.all()
+        duh = InstaPost.objects.filter(tag__in=qt).filter(active="True")
+        igtags = IGTag.objects.filter(articles=self.get_object())
+        realtime_igtags = IGTag.objects.filter(articles=self.get_object()).exclude(ig_id__isnull=True).exclude(ig_id__exact='')
+        inactive_igtags = IGTag.objects.filter(articles=self.get_object()).filter(Q(ig_id__exact='') | Q(ig_id__isnull=True))
+
+        context['realtime_igtags'] = realtime_igtags
+        context['inactive_igtags'] = inactive_igtags 
+        context['igtags'] = igtags
+        context['media_list'] = duh
+        return context
     
     
             

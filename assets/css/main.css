@@ -682,6 +682,14 @@ aside div.sponsor{
 	margin-top: 3%;
 }
 
+.brick.notsolast{
+   border-top: 1px solid #e0cbad;
+	border-bottom: 1px solid #e0cbad;
+	margin-top: 3%;
+	margin-bottom: 1%;
+	
+}
+
 aside.more{
 	font-size: .9em;
 }
@@ -716,6 +724,61 @@ section.primary cite{
 	color: gray;
 	
 }
+
+/* instagram adders */
+
+.ig ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+img.igprof{
+	width: 40px;
+	margin-bottom: 5px;
+	border-radius: 2px;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.3);
+}
+
+.igbox{
+	xwidth: 30%;
+	display: block;
+	  border: 1px solid #d0d0d0;
+	  background: #fff;
+	  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+	  padding: 8px;
+	  font-size: .7em;
+	  float: left;
+	  margin: 1em 0;
+	  width: 268px;
+	  border-radius: 2px;
+	  
+}
+
+.igbox .ig_std{
+	margin-bottom: 10px;
+	border-radius: 2px;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.3);
+}
+
+.igtags{
+	text-transform: uppercase;
+	font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+	font-size: .8em;
+}
+div.ig_user{
+	word-wrap: break-word;
+	xoverflow: hidden;
+}
+
+.hider{
+	float: right;
+}
+
+.brick.ighead p{
+	margin: 1% 0;
+}
+
 
 
 /*static pages */
@@ -1601,6 +1664,10 @@ article.teaser .thumbnail{
 article.teaser .hgroup{
 	width: 65%;
 
+}
+
+.igbox{
+	width: 300px;
 }
 	
 }
