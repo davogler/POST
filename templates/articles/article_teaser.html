@@ -8,7 +8,7 @@
 	<div class="hgroup">
 	
 		<h2 class="list"><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
-		<p class="tagline-list">{{ article.tagline }}</p>
+		<p class="tagline-list">{{ article.tagline|striptags }}</p>
 		<p class="intro">{{ article.intro|safe }}</p>
 	</div>	        	
 	
