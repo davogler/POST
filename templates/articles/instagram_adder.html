@@ -1,39 +1,45 @@
 <div class="brick ighead clearfix">
-     <h2>Instagram pictures tagged with 
-         {% if object.igtag_set.count = 1 %}
-            #{{ object.igtag_set.all|first }}
-         {% elif object.igtag_set.count = 2 %}
-            #{{ object.igtag_set.all.0 }} or #{{ object.igtag_set.all.1 }}
-         {% else %}
-            {% for tag in object.igtag_set.all %}#{{tag}}{% spaceless %}
-                {% if forloop.last %}{% else %}
-                    {% ifequal forloop.revcounter0 1 %}, or {% else %}, {% endifequal %}
-                {% endif %}{% endspaceless %}
-            {% endfor %} 
-         {% endif %}
+    <h2>Your Instagram Pictures</h2>
 
-    </h2>
+{% if realtime_igtags or realtime_iglocs %}
+    <p>Share your images about this story:
+    {% if realtime_igtags %}
+            tag your pictures with <span class="igtags">{% spaceless %}
+            {% if realtime_igtags.count = 1 %}
+                <a href="https://instagram.com/explore/tags/{{ realtime_igtags.0 }}">#{{ realtime_igtags.0 }}</a>
+             {% elif realtime_igtags.count = 2 %}
+                <a href="https://instagram.com/explore/tags/{{ realtime_igtags.0 }}">#{{ realtime_igtags.0 }}</a> </span> or <span class="igtags">
+                <a href="https://instagram.com/explore/tags/{{ realtime_igtags.1 }}">#{{ realtime_igtags.1 }}</a>,
+             {% else %}
+                {% for tag in realtime_igtags.all %}<a href="https://instagram.com/explore/tags/{{tag}}">#{{tag}}</a>{% spaceless %}
+                    {% if forloop.last %}{% else %}
+                        {% ifequal forloop.revcounter0 1 %}, or {% else %}, {% endifequal %}
+                    {% endif %}{% endspaceless %}
+                {% endfor %}
+             {% endif %}{% endspaceless %}</span> 
+    {% endif %}
+    {% if realtime_igtags and realtime_iglocs %}
+        or
+    {% endif %}
+    {% if realtime_iglocs %}
+              use location{% spaceless %}
+            {% if realtime_iglocs.count = 1 %}<span class="igtags">
+                &nbsp;<i class="fa fa-map-marker"></i>{{ realtime_iglocs.0 }}
+            {% elif realtime_iglocs.count = 2 %}s <span class="igtags">
+               <i class="fa fa-map-marker"></i>{{ realtime_iglocs.0 }}</span> or <span class="igtags"><i class="fa fa-map-marker"></i>{{ realtime_iglocs.1 }}
+            {% else %}s <span class="igtags">
+               {% for loc in realtime_iglocs.all %}<i class="fa fa-map-marker"></i>{{loc}}{% spaceless %}
+                   {% if forloop.last %}{% else %}
+                       {% ifequal forloop.revcounter0 1 %}</span>, or <span class="igtags">  {% else %}, {% endifequal %}
+                   {% endif %}{% endspaceless %}
+               {% endfor %} 
+            {% endif %}</span>{% endspaceless %}
+    {% endif %} 
+             and they will appear below!</p>
+            
     
-    
-    
-    
-{% if realtime_igtags %}
-       <p>Share your images about this story: tag your Instagram pictures with <span class="igtags">{% spaceless %}
-        {% if realtime_igtags.count = 1 %}
-            <a href="https://instagram.com/explore/tags/{{ realtime_igtags.0 }}">#{{ realtime_igtags.0 }}</a>
-         {% elif realtime_igtags.count = 2 %}
-            <a href="https://instagram.com/explore/tags/{{ realtime_igtags.0 }}">#{{ realtime_igtags.0 }}</a> </span> or <span class="igtags">
-            <a href="https://instagram.com/explore/tags/{{ realtime_igtags.1 }}">#{{ realtime_igtags.1 }}</a>,
-         {% else %}
-            {% for tag in realtime_igtags.all %}<a href="https://instagram.com/explore/tags/{{tag}}">#{{tag}}</a>{% spaceless %}
-                {% if forloop.last %}{% else %}
-                    {% ifequal forloop.revcounter0 1 %}, or {% else %}, {% endifequal %}
-                {% endif %}{% endspaceless %}
-            {% endfor %}
-         {% endif %}{% endspaceless %}</span> and they will appear below!</p>
-
-         
 {% endif %}
+
 
 {% if inactive_igtags %}
     <p>Real-time updates for <span class="igtags">
@@ -49,6 +55,23 @@
             {% endif %}{% endspaceless %}
         {% endfor %}
     {% endif %}</span>are closed, but some images with these tags appear below.
+
+    </p>
+{% endif %}
+
+{% if inactive_iglocs %}
+    <p>Real-time updates for <span class="igtags">
+    {% if inactive_iglocs.count = 1 %}
+            <i class="fa fa-map-marker"></i>{{ inactive_iglocs.0 }}
+        {% elif inactive_iglocs.count = 2 %}
+           <i class="fa fa-map-marker"></i>{{ inactive_iglocs.0 }} </span> and <span class="igtags"> <i class="fa fa-map-marker"></i>{{ inactive_iglocs.1 }}
+        {% else %}
+           {% for loc in inactive_iglocs.all %}<i class="fa fa-map-marker"></i>{{loc}}{% spaceless %}
+               {% if forloop.last %}{% else %}
+                   {% ifequal forloop.revcounter0 1 %},</span> and <span class="igtags">{% else %}, {% endifequal %}
+               {% endif %}{% endspaceless %}
+           {% endfor %} 
+        {% endif %}</span>are {% if inactive_igtags and inactive_iglocs %}also {% endif %} closed, but some images from these locations appear below.
 
     </p>
 {% endif %}

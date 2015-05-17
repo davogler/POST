@@ -767,6 +767,10 @@ img.igprof{
 	font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
 	font-size: .8em;
 }
+
+.igtags .fa-map-marker{
+	margin: 0 2px 0 0;
+}
 div.ig_user{
 	word-wrap: break-word;
 	xoverflow: hidden;

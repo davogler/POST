@@ -1,12 +1,12 @@
 from django.contrib import admin
-from insta.models import InstaPost, IGTag, BadPerson
+from insta.models import InstaPost, IGTag, BadPerson, Location
 
 
 class InstaPostAdmin(admin.ModelAdmin):
     class Meta:
         model = InstaPost
 
-    list_display = ('insta_id', 'username', 'tag', 'active',)
+    list_display = ('insta_id', 'username', 'tag', 'active', 'location',)
     list_editable = ['active',]
 
 
@@ -31,3 +31,13 @@ class BadPersonAdmin(admin.ModelAdmin):
 
 
 admin.site.register(BadPerson, BadPersonAdmin)
+
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ('location_id', 'name', 'subscription_id', 'shown_in_articles',)
+    
+
+    class Meta:
+        model = Location
+
+
+admin.site.register(Location, LocationAdmin)

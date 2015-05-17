@@ -8,7 +8,7 @@
 {% if change %}{% if not is_popup %}
   <ul class="grp-object-tools">
   	<li>
-        <form name="refresh_form" id="refresh_form" method="post" accept-charset="UTF-8" action="{% url "instagram_subscribe" original.tag %}" >   
+        <form name="refresh_form" id="refresh_form" method="post" accept-charset="UTF-8" action="{% url 'instagram_subscribe' 'tag' original.tag %}" >   
       
            {% csrf_token %}
                   
@@ -18,11 +18,11 @@
     </li>
 
     <li>
-        <form name="refresh_form" id="refresh_form" method="post" accept-charset="UTF-8" action="{% url "delete_igsubscription" original.tag %}" >   
+        <form name="refresh_form" id="refresh_form" method="post" accept-charset="UTF-8" action="{% url "delete_igsubscription" 'tag' original.tag %}" >   
       
            {% csrf_token %}
                   
-           <input name="submit_refresh" id="submit_delete" class="grp-button" type="submit" value="Delete from IG" />
+           <input name="submit_refresh" id="submit_delete" class="grp-button" type="submit" value="Unsubscribe from IG" />
                         
          </form>
     </li>

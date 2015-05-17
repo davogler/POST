@@ -5,7 +5,7 @@ from articles.models import Article, Issue
 from django.db.models import Q
 import datetime
 from django.views.generic import ListView, DetailView
-from insta.models import InstaPost, IGTag
+from insta.models import InstaPost, IGTag, Location
 
 from django.core.paginator import Paginator
 from django.http import Http404
@@ -60,15 +60,21 @@ class ArticleDetail(DetailView):
         
         #extra stuff for context!
         qt = self.get_object().igtag_set.all()
-        duh = InstaPost.objects.filter(tag__in=qt).filter(active="True")
+        locs = self.get_object().location_set.all()
+        #duh = InstaPost.objects.filter(tag__in=qt).filter(active="True")
+        duh = InstaPost.objects.filter(Q(tag__in=qt) | Q(location__in=locs)).filter(active="True")
         igtags = IGTag.objects.filter(articles=self.get_object())
         realtime_igtags = IGTag.objects.filter(articles=self.get_object()).exclude(ig_id__isnull=True).exclude(ig_id__exact='')
         inactive_igtags = IGTag.objects.filter(articles=self.get_object()).filter(Q(ig_id__exact='') | Q(ig_id__isnull=True))
-
+        realtime_iglocs = Location.objects.filter(articles=self.get_object()).exclude(subscription_id__isnull=True).exclude(subscription_id__exact='')
+        inactive_iglocs = Location.objects.filter(articles=self.get_object()).filter(Q(subscription_id__exact='') | Q(subscription_id__isnull=True))
         context['realtime_igtags'] = realtime_igtags
         context['inactive_igtags'] = inactive_igtags 
         context['igtags'] = igtags
         context['media_list'] = duh
+        context['loclist'] = locs
+        context['realtime_iglocs'] = realtime_iglocs
+        context['inactive_iglocs'] = inactive_iglocs
         return context
     
     
