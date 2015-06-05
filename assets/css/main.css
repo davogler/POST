@@ -726,6 +726,156 @@ section.primary cite{
 	
 }
 
+
+/* video */
+
+.video_tile{
+	width: 48%;
+	float: left;
+	border: 1px solid #e0cbad;
+	margin: 2% 2% 2% 0;
+	background-color:  #fbfaf9;
+}
+
+.video_tile h3{
+	margin: 2%;
+	float: left;
+}
+
+.video_tile img{
+	width: 100%;
+}
+
+.video_tile i.fa-play-circle{
+	float: right;
+	margin: 3.5% 4% 0 0 ;
+}
+.video_tile a:hover{
+	text-decoration: none;
+}
+
+ul.videolist{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.com_videolist{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.com_videolist .video_tile{
+	width: 31.3%;
+	min-width: 286px;
+	
+}
+
+@media only screen and (max-width: 1054px) {
+	ul.com_videolist .video_tile{
+		width: 48%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	ul.com_videolist .video_tile{
+		width: 100%;
+	}
+	ul.videolist .video_tile{
+		width: 100%;
+	}
+}
+
+ul.com_videolist .video_tile h3{
+	font-size: 1em;
+}
+
+ul.morevid{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+ul.morevid .video_tile{
+	width: 23.4%;
+	min-width: 190px;
+}
+ul.morevid li.video_tile:last-child{
+	margin-right: 0;
+}
+ul.morevid .video_tile h3{
+	font-size: .8em;
+}
+@media only screen and (max-width: 920px) {
+	ul.morevid .video_tile{
+		width: 48%;
+	}
+}
+@media only screen and (max-width: 480px) {
+	ul.morevid .video_tile{
+		width: 100%;
+	}
+	
+}
+
+
+.underwriter{
+	text-align: center;
+	margin: 6% auto;
+}
+
+.underwriter p{
+	font-family: arial;
+	font-size: .6em;
+	font-style: italic;
+	color: #a7a7a7;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.banner728{
+text-align: center;
+	max-width: 728px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.banner728 img{
+	width: 100%;
+}
+
+.vidthu .thumbnail{
+	float: left;
+}
+.vidthu h4{
+	margin-left: 2%;
+	float: left;
+}
+
+ul.vidcreator{
+	list-style: none;
+	
+	padding: 0;	
+}
+
+ul.vidcreator li{
+	margin: 0 0 5% 0;
+}
+
+.nexte{
+	xheight: 80px;
+	background: transparent;
+	overflow: hidden;
+	xbackground-color: rgba(0,0,0,0.10);
+	box-sizing:        border-box;
+}
+
+h3.more{
+	float: right;
+}
+
+
+
 /* instagram adders */
 
 .ig ul{
