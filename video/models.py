@@ -59,6 +59,7 @@ class VideoPost(models.Model):
     type = models.IntegerField(choices=TYPE_CHOICES, default=POST_TYPE)
     category = models.ManyToManyField('VideoCategory', blank=True)
     thumbnail = FileBrowseField("Thumbnail Image", max_length=200, extensions=[".jpg",".png", ".gif"], blank=True, null=True, help_text='For video list teaser, twoup size')
+    thumbnail_alt = FileBrowseField("Alt Thumbnail Image", max_length=200, extensions=[".jpg",".png", ".gif"], blank=True, null=True, help_text='For social media metadata')
     vimeo_id = models.CharField("Vimeo ID", max_length=200, blank=True)
     youtube_id = models.CharField("Youtube ID", max_length=200, blank=True)
     creator = models.ManyToManyField('VideoCreator', blank=True)
