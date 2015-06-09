@@ -53,7 +53,7 @@
       ID:'width',
       contexts: [
         {name:'standard', min:624}, 
-        {name:'tablet', min:510},
+        {name:'tablet', min:540},
         {name:'mobile', min:0}],
       // compare the return value of the callback to each context
       // return true for a match

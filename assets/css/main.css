@@ -263,7 +263,7 @@ h1.logo a {
 nav.mm{
 	display: block;
 	float: left;
-	width:72%;
+	width:73.5%;
 	margin:6px 0 0 2px;
 	}
 
@@ -348,7 +348,7 @@ ul#nav{
 
 
 
-@media only screen and (min-width: 509px) {
+@media only screen and (min-width: 540px) {
 #nav .toggly{
 	display: none;
 }
@@ -768,7 +768,7 @@ ul.com_videolist{
 
 ul.com_videolist .video_tile{
 	width: 31.3%;
-	min-width: 286px;
+	
 	
 }
 
@@ -1870,7 +1870,7 @@ article.teaser .hgroup{
     	top: 50px;
     }
     nav.mm{
-    	width: 65%;
+    	width: 73.5%;
     	
     	margin:10px 0 0 12px;
     }
@@ -2060,6 +2060,10 @@ article.teaser .hgroup{
        
     
 }
+
+
+
+
 
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
