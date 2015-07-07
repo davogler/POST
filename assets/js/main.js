@@ -118,8 +118,10 @@ $('img.zoomer').each(function() {
 
 }); 
 
+// responsive video embeds
 $("section.primary").fitVids();
 $("section.fullwidth").fitVids();
+$("section.content-static").fitVids();
 
 
 $( "a.toggly" ).click(function() {
