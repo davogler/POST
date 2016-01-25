@@ -33,6 +33,7 @@ class Article(models.Model):
     )
     title = models.CharField(max_length=250)
     tagline = models.TextField(blank=True)
+    show_tagline = models.BooleanField(default=True, help_text='check to show tagline on article summary page')
     intro = models.TextField(blank=True, help_text='For article list view teaser- can be identical to standfirst if desired.')
     standfirst = models.TextField(blank=True, help_text='First paragraph in article body.')
     body = models.TextField()
