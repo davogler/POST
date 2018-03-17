@@ -1,0 +1,12 @@
+
+{% load fb_versions %}
+
+
+{% if ads %}
+<div class = "brick only clearfix">
+    {% for ad in ads %}
+        <a href="{{ ad.adlink }}"><img class="baddy" src="{{ ad.adimg.url }}" alt="{{ ad }}" /></a>
+    {% endfor %}
+</div>
+{% endif %}
+

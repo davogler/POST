@@ -4,6 +4,7 @@
 
 {% block bodyclass %}{{ block.super }}flatpage {{ flatpage.title|slugify }}{% endblock %}
 {% load fb_versions %}
+{% load sponsor_tags %}
 
 {% block smmeta %}
     <meta name="description" content="A bi-monthly magazine in Rochester, New York. We tell the hidden and untold story of Rochester's innovators, artists, entrepreneurs, dreamers, and doers.">
@@ -55,18 +56,7 @@
     
     </div>
 
-{% if ad1 %}
-<div class="brick clearfix underwriter">
-    <p>Special thanks to our underwriters:</p>
-    <div class="banner728">
-        <a id="ad1" href="{{ad1.adlink}}" onclick="ga('send','event','Outgoing Ad Clicks','{{ad1.name}}')" target="_blank">
-        <img class="fullwidead" src="{{ ad1.adimg.url}}" alt="{{ad1.name}}" />
-
-    </a>
-    </div>
-
-</div>
-{% endif %}
+{% adblock request 3 %}
 
 
 <div class="brick clearfix">
@@ -88,18 +78,8 @@
     
     </div>
 
-{% if ad2 %}
-<div class="brick clearfix underwriter">
-    <p>Special thanks to our underwriters:</p>
-    <div class="banner728">
-        <a id="ad2" href="{{ad2.adlink}}"  target="_blank">
-        <img class="fullwidead" src="{{ ad2.adimg.url}}" alt="{{ad2.name}}" />
-        
-    </a>
-    </div>
 
-</div>
-{% endif %}
+
 
 </section>
 

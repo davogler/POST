@@ -5,6 +5,7 @@
 {% block bodyclass %}issue {{ object.slug }}{% endblock %}
 
 {% load fb_versions %}
+{% load sponsor_tags %}
 {% load static %}
 
 
@@ -93,7 +94,7 @@
 	</div>
 	</div>
 
-
+{% adblock request 1 %}
 	
 	
 

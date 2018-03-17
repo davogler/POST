@@ -3,6 +3,7 @@
 {% block title %}Featured Articles | {{ block.super }} {% endblock %}
 
 {% load fb_versions %}
+{% load sponsor_tags %}
 
 {% block smmeta %}
 
@@ -42,7 +43,7 @@
        <section class="content-static">
 
        		
-       		
+       		{% adblock request 2 %}
        		
        		
 	        
