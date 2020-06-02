@@ -1,4 +1,4 @@
-Django==1.5.1
+Django==1.11.28
 Pillow==2.1.0
 South==0.8.2
 django-filebrowser==3.5.2
